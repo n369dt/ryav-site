@@ -70,7 +70,7 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2
 /* hero */
 .heroband{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(55% 80% at 74% 46%,#1b1b1f 0%,rgba(9,9,10,0) 72%)}
 .heroband .topo-bg{opacity:.85;-webkit-mask-image:linear-gradient(180deg,#000 50%,transparent 100%);mask-image:linear-gradient(180deg,#000 50%,transparent 100%)}
-.hero{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:48px;align-items:center;padding:40px 32px 104px}
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center;padding:40px 32px 104px}
 .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(26px,3.5vw,48px);line-height:1.14;letter-spacing:.01em;text-transform:uppercase;margin:0 0 28px;text-wrap:balance}
 .sheen{background:linear-gradient(100deg,#c9cdd4 0%,#c9cdd4 40%,#ffffff 50%,#c9cdd4 60%,#c9cdd4 100%);background-size:260% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:sheen 3.4s cubic-bezier(.2,.6,.2,1) .3s 1 both}
 .hero p{max-width:46ch;color:var(--dim);font-size:17px;margin:0 0 36px}
@@ -80,9 +80,10 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2
 .gauge svg{display:block;width:100%;height:auto;filter:drop-shadow(0 36px 48px rgba(0,0,0,.7))}
 
 /* products */
-.film{padding:56px 0 32px}
-.film h2{font-family:var(--display);font-weight:700;font-size:clamp(22px,2.6vw,34px);line-height:1.15;letter-spacing:.04em;text-transform:uppercase;margin:0 0 14px}
-.film p{max-width:56ch;color:var(--dim);margin:0 0 24px}
+.hero-film{min-width:0;animation:rise 1s cubic-bezier(.2,.7,.2,1) .2s both}
+.film-cap{margin:14px 0 0 !important;color:var(--dim);font-size:14px;letter-spacing:.14em;text-transform:uppercase;max-width:none !important}
+.horizon{display:grid;place-items:center;padding:40px 0 16px}
+.horizon .gauge{max-width:400px}
 .film-frame{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.55)}
 .film-frame::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--goldline);z-index:1;pointer-events:none}
 .film-frame video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
@@ -288,6 +289,20 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2
       <p>RYAV designs experimental avionics for non-certified aircraft: flight instruments, engine monitoring and autopilot hardware. The flagship, AlphaONE, is open source.</p>
       <a class="btn" href="#products">See the products</a>
     </div>
+    <div class="hero-film" id="film">
+      <div class="film-frame">
+        <video autoplay muted loop playsinline controls preload="auto" poster="ryav-film-poster.jpg" width="1920" height="1080" aria-label="RYAV in thirty seconds">
+          <source src="ryav-film.mp4" type="video/mp4">
+          <a href="ryav-film.mp4">Watch RYAV in thirty seconds (MP4)</a>
+        </video>
+      </div>
+      <p class="film-cap">RYAV in thirty seconds.</p>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section class="horizon">
     <div class="gauge">
       <svg viewBox="0 0 480 480" role="img" aria-label="Animated attitude indicator with a polished steel bezel">
         <defs>
@@ -358,19 +373,6 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2
         <circle class="glint" cx="240" cy="240" r="225" fill="none" stroke="#ffffff" stroke-opacity=".6" stroke-width="9" stroke-linecap="round" stroke-dasharray="110 1304"/>
         <circle class="glint2" cx="240" cy="240" r="225" fill="none" stroke="#ffffff" stroke-opacity=".28" stroke-width="9" stroke-linecap="round" stroke-dasharray="60 1354" stroke-dashoffset="-707"/>
       </svg>
-    </div>
-  </section>
-</div>
-
-<div class="wrap">
-  <section class="film" id="film" aria-labelledby="film-t">
-    <h2 id="film-t">The film</h2>
-    <p>RYAV in thirty seconds.</p>
-    <div class="film-frame">
-      <video controls playsinline preload="metadata" poster="ryav-film-poster.jpg" width="1920" height="1080">
-        <source src="ryav-film.mp4" type="video/mp4">
-        <a href="ryav-film.mp4">Watch the RYAV film (MP4)</a>
-      </video>
     </div>
   </section>
 
