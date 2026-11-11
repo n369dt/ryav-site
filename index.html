@@ -250,6 +250,9 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2
   *,*::before,*::after{animation:none !important;transition:none !important}
 }
 @media(max-width:700px){.t-logo{margin-left:0}}
+.shop-note{display:inline-flex;align-items:center;gap:12px;max-width:100%;margin:22px 0 0;padding:12px 18px;border:1px solid rgba(220,192,138,.45);border-radius:2px;background:rgba(220,192,138,.07);color:var(--ink);font-size:14px;font-weight:600;letter-spacing:.02em;line-height:1.4}
+.shop-note::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(224,37,45,.18)}
+.soon{display:inline-block;margin-top:16px;padding:6px 12px;border:1px solid var(--gold);border-radius:2px;color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.3em;line-height:1.2;text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -586,12 +589,13 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2
   <div class="wrap">
     <h2 class="shop-h" id="shop-t">Shop</h2>
     <p class="shop-p">Three collections, from RYAV gear to custom gifts.</p>
+    <p class="shop-note">All Occasions Etsy shop is live now, details below!</p>
   </div>
 
   <article class="tier tier-ryav" id="tier-ryav">
     <div class="banner">
       <div class="wrap banner-in">
-        <div><h3 class="t-name">RYAV</h3><span class="t-sub">Aviation lifestyle</span></div>
+        <div><h3 class="t-name">RYAV</h3><span class="t-sub">Aviation lifestyle</span><span class="soon">Coming soon</span></div>
         <span class="vr" aria-hidden="true"></span>
         <p class="t-tag">Built by pilots.<br>For the lifestyle.</p>
       </div>
@@ -612,7 +616,7 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2
   <article class="tier tier-vfr" id="tier-vfr">
     <div class="banner">
       <div class="wrap banner-in">
-        <div><h3 class="t-name">VFR Collection</h3><span class="t-sub">By N596JW</span></div>
+        <div><h3 class="t-name">VFR Collection</h3><span class="t-sub">By N596JW</span><span class="soon">Coming soon</span></div>
         <span class="vr" aria-hidden="true"></span>
         <p class="t-tag">Same sky.<br>Different story.</p>
       </div>
