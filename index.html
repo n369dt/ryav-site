@@ -80,6 +80,12 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2
 .gauge svg{display:block;width:100%;height:auto;filter:drop-shadow(0 36px 48px rgba(0,0,0,.7))}
 
 /* products */
+.film{padding:56px 0 32px}
+.film h2{font-family:var(--display);font-weight:700;font-size:clamp(22px,2.6vw,34px);line-height:1.15;letter-spacing:.04em;text-transform:uppercase;margin:0 0 14px}
+.film p{max-width:56ch;color:var(--dim);margin:0 0 24px}
+.film-frame{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.film-frame::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--goldline);z-index:1;pointer-events:none}
+.film-frame video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
 .products{padding:24px 0 24px}
 .products h2{font-family:var(--display);font-weight:700;font-size:clamp(22px,2.6vw,34px);line-height:1.15;letter-spacing:.04em;text-transform:uppercase;margin:0 0 14px}
 .products p{max-width:56ch;color:var(--dim);margin:0}
@@ -357,6 +363,17 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2
 </div>
 
 <div class="wrap">
+  <section class="film" id="film" aria-labelledby="film-t">
+    <h2 id="film-t">The film</h2>
+    <p>RYAV in thirty seconds.</p>
+    <div class="film-frame">
+      <video controls playsinline preload="metadata" poster="ryav-film-poster.jpg" width="1920" height="1080">
+        <source src="ryav-film.mp4" type="video/mp4">
+        <a href="ryav-film.mp4">Watch the RYAV film (MP4)</a>
+      </video>
+    </div>
+  </section>
+
   <section class="products" id="products">
     <h2>Products</h2>
     <p>Each product is at a different stage. The label on every one says which.</p>
