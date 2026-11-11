@@ -124,6 +124,36 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2
 .facts li::before{content:"";height:1px;background:var(--steel);align-self:center}
 
 /* shop */
+.pod{position:relative;padding:88px 0 72px}
+.pod::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--goldline);opacity:.6}
+.pod-top{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.pod h2{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(22px,2.6vw,34px);line-height:1.15;letter-spacing:.04em;text-transform:uppercase}
+.pod-k{display:block;margin:0 0 10px;color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.3em;text-transform:uppercase}
+.pod-sub{max-width:56ch;margin:14px 0 0;color:var(--dim)}
+.pod-nav{display:flex;gap:10px}
+.pod-nav button{width:46px;height:46px;display:grid;place-items:center;border:1px solid var(--line);border-radius:2px;background:var(--panel);color:var(--ink);cursor:pointer;transition:border-color .3s,color .3s,transform .3s}
+.pod-nav button:hover:not(:disabled){border-color:var(--gold);color:var(--gold)}
+.pod-nav button:disabled{opacity:.35;cursor:default}
+.pod-nav svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.rail{display:flex;gap:18px;margin-top:34px;padding:4px 4px 22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#3a3a40 transparent}
+.rail::-webkit-scrollbar{height:6px}
+.rail::-webkit-scrollbar-thumb{background:#3a3a40;border-radius:3px}
+.rail::-webkit-scrollbar-track{background:transparent}
+.ep{flex:0 0 302px;scroll-snap-align:start;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:2px;background:var(--panel);text-decoration:none;overflow:hidden;transition:border-color .35s,transform .35s}
+.ep:hover,.ep:focus-visible{border-color:var(--gold);transform:translateY(-3px)}
+.ep-shot{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.ep-shot img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .35s,transform .6s}
+.ep:hover .ep-shot img{transform:scale(1.04);opacity:.78}
+.ep-play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.ep-play span{width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:rgba(9,9,10,.62);border:1px solid rgba(220,192,138,.55);transition:background .35s}
+.ep-play svg{width:15px;height:15px;fill:var(--gold);margin-left:2px}
+.ep:hover .ep-play span{background:rgba(9,9,10,.3)}
+.ep-txt{padding:16px 18px 20px}
+.ep-t{display:block;color:var(--ink);font-size:14px;font-weight:600;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ep-d{display:block;margin-top:10px;color:var(--dim);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.pod-all{display:inline-flex;align-items:center;gap:10px;margin-top:6px;color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(220,192,138,.4);padding-bottom:4px;transition:border-color .3s}
+.pod-all:hover{border-color:var(--gold)}
+@media(max-width:700px){.pod{padding:64px 0 52px}.ep{flex-basis:264px}.pod-nav{display:none}}
 .shop{position:relative;padding:96px 0 40px}
 .shop::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--goldline);opacity:.6}
 .shop-h{margin:0 0 14px;font-family:var(--display);font-weight:700;font-size:clamp(22px,2.6vw,34px);line-height:1.15;letter-spacing:.04em;text-transform:uppercase}
@@ -280,7 +310,7 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2
       </a>
       <span class="vr" aria-hidden="true"></span>
       <span class="tag">Built by pilots.</span>
-      <nav class="links" aria-label="Main"><a href="#products">Products</a><a href="#shop">Shop</a><a href="#contact">Contact</a></nav>
+      <nav class="links" aria-label="Main"><a href="#products">Products</a><a href="#podcast">Podcast</a><a href="#shop">Shop</a><a href="#contact">Contact</a></nav>
     </header>
   </div>
   <section class="wrap hero">
@@ -604,6 +634,57 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2
   </section>
 </div>
 
+<section class="pod" id="podcast" aria-labelledby="pod-t">
+  <div class="wrap">
+    <div class="pod-top">
+      <div>
+        <span class="pod-k">Podcast</span>
+        <h2 id="pod-t">Fly&rsquo;n With Ryan Show</h2>
+        <p class="pod-sub">Flying, building and the people around it. New episodes land here automatically.</p>
+      </div>
+      <div class="pod-nav">
+        <button type="button" data-rail="prev" aria-label="Previous episodes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-rail="next" aria-label="More episodes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <div class="rail" id="pod-rail" tabindex="0" role="list" aria-label="Latest episodes">
+      <a class="ep" href="https://www.youtube.com/watch?v=-bJSVSkfrEo" target="_blank" rel="noopener">
+        <span class="ep-shot"><img src="https://i.ytimg.com/vi/-bJSVSkfrEo/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="ep-play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg></span></span></span>
+        <span class="ep-txt"><span class="ep-t">Open your Hangar door with Wifi For only 21 Bucks ???? NO WAY!!!!</span><span class="ep-d">SEP 2026</span></span>
+      </a>
+      <a class="ep" href="https://www.youtube.com/watch?v=7H070aWJeLk" target="_blank" rel="noopener">
+        <span class="ep-shot"><img src="https://i.ytimg.com/vi/7H070aWJeLk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="ep-play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg></span></span></span>
+        <span class="ep-txt"><span class="ep-t">Fly&#x27;n With Ryan Show- Don Delahanty</span><span class="ep-d">MAY 2026</span></span>
+      </a>
+      <a class="ep" href="https://www.youtube.com/watch?v=vwzhm-phHCY" target="_blank" rel="noopener">
+        <span class="ep-shot"><img src="https://i.ytimg.com/vi/vwzhm-phHCY/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="ep-play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg></span></span></span>
+        <span class="ep-txt"><span class="ep-t">Fly’n the @cubcrafters CarbonCub around The backcountry in ATX</span><span class="ep-d">FEB 2026</span></span>
+      </a>
+      <a class="ep" href="https://www.youtube.com/watch?v=0T3A4GonQ8g" target="_blank" rel="noopener">
+        <span class="ep-shot"><img src="https://i.ytimg.com/vi/0T3A4GonQ8g/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="ep-play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg></span></span></span>
+        <span class="ep-txt"><span class="ep-t">Fly’n with Ryan show-Ep006 Fly’n with Mike Rainey</span><span class="ep-d">JAN 2026</span></span>
+      </a>
+      <a class="ep" href="https://www.youtube.com/watch?v=2CQpfgHln28" target="_blank" rel="noopener">
+        <span class="ep-shot"><img src="https://i.ytimg.com/vi/2CQpfgHln28/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="ep-play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg></span></span></span>
+        <span class="ep-txt"><span class="ep-t">checkout our newest pilot Fly’n the Piaggio #msfs2020 #piaggio #aviation #flightsimulator #landing</span><span class="ep-d">DEC 2025</span></span>
+      </a>
+      <a class="ep" href="https://www.youtube.com/watch?v=EaboVuvGuCU" target="_blank" rel="noopener">
+        <span class="ep-shot"><img src="https://i.ytimg.com/vi/EaboVuvGuCU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="ep-play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg></span></span></span>
+        <span class="ep-txt"><span class="ep-t">The Newest Simulator pilot! And maybe a YouTube star…. Who knows! #msfs2020 #aviation #piaggio</span><span class="ep-d">DEC 2025</span></span>
+      </a>
+      <a class="ep" href="https://www.youtube.com/watch?v=YwUFUxOF7GE" target="_blank" rel="noopener">
+        <span class="ep-shot"><img src="https://i.ytimg.com/vi/YwUFUxOF7GE/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="ep-play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg></span></span></span>
+        <span class="ep-txt"><span class="ep-t">Flying the TBM 850 to Lakeway Texas (LiveATC)</span><span class="ep-d">SEP 2025</span></span>
+      </a>
+      <a class="ep" href="https://www.youtube.com/watch?v=K513ei6Do7E" target="_blank" rel="noopener">
+        <span class="ep-shot"><img src="https://i.ytimg.com/vi/K513ei6Do7E/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="ep-play"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg></span></span></span>
+        <span class="ep-txt"><span class="ep-t">Fly&#x27;n the Piaggio p180 from Galveston to Dallas VlOG004</span><span class="ep-d">SEP 2025</span></span>
+      </a>
+    </div>
+    <a class="pod-all" href="https://www.youtube.com/@FlynWithRyanShow" target="_blank" rel="noopener">All episodes on YouTube</a>
+  </div>
+</section>
+
 <section class="shop" id="shop" aria-labelledby="shop-t">
   <div class="wrap">
     <h2 class="shop-h" id="shop-t">Shop</h2>
@@ -713,5 +794,51 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2
   </div>
 </footer>
 
+<script>
+(function(){
+  var rail=document.getElementById('pod-rail'); if(!rail) return;
+  var M=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  document.querySelectorAll('.pod-nav button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var card=rail.querySelector('.ep'); var step=card?card.offsetWidth+18:320;
+      rail.scrollBy({left:(b.dataset.rail==='next'?1:-1)*step*2,behavior:'smooth'});
+    });
+  });
+  function sync(){
+    var p=document.querySelector('[data-rail=prev]'), n=document.querySelector('[data-rail=next]');
+    if(!p||!n) return;
+    p.disabled=rail.scrollLeft<8;
+    n.disabled=rail.scrollLeft>=rail.scrollWidth-rail.clientWidth-8;
+  }
+  rail.addEventListener('scroll',sync); window.addEventListener('resize',sync); sync();
+  function build(eps){
+    var frag=document.createDocumentFragment();
+    eps.slice(0,8).forEach(function(e){
+      if(!e.id||!e.title) return;
+      var a=document.createElement('a');
+      a.className='ep'; a.href='https://www.youtube.com/watch?v='+encodeURIComponent(e.id);
+      a.target='_blank'; a.rel='noopener';
+      var shot=document.createElement('span'); shot.className='ep-shot';
+      var img=document.createElement('img');
+      img.src='https://i.ytimg.com/vi/'+encodeURIComponent(e.id)+'/hqdefault.jpg';
+      img.alt=''; img.loading='lazy'; img.width=480; img.height=360;
+      var play=document.createElement('span'); play.className='ep-play';
+      play.innerHTML='<span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg></span>';
+      shot.appendChild(img); shot.appendChild(play);
+      var txt=document.createElement('span'); txt.className='ep-txt';
+      var t=document.createElement('span'); t.className='ep-t'; t.textContent=e.title;
+      var d=document.createElement('span'); d.className='ep-d';
+      var p=String(e.published||''); d.textContent=p.length>6?M[(+p.slice(5,7)||1)-1]+' '+p.slice(0,4):'';
+      txt.appendChild(t); txt.appendChild(d);
+      a.appendChild(shot); a.appendChild(txt); frag.appendChild(a);
+    });
+    if(frag.childNodes.length){ rail.textContent=''; rail.appendChild(frag); sync(); }
+  }
+  fetch('podcast.json?t='+Math.floor(Date.now()/6e5),{cache:'no-cache'})
+    .then(function(r){ return r.ok?r.json():null; })
+    .then(function(d){ if(d&&d.episodes&&d.episodes.length) build(d.episodes); })
+    .catch(function(){});
+})();
+</script>
 </body>
 </html>

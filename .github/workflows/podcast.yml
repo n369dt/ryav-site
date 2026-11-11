@@ -1,0 +1,28 @@
+name: Refresh podcast feed
+
+on:
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pull latest episodes from YouTube
+        run: python3 .github/scripts/podcast_feed.py
+      - name: Commit if the feed changed
+        run: |
+          if ! git diff --quiet -- podcast.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add podcast.json
+            git commit -m "Refresh podcast feed"
+            git push
+          else
+            echo "podcast.json already current"
+          fi
